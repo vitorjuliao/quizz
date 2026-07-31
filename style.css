@@ -1,0 +1,93 @@
+:root {
+    --cor-fundo: #040c4d;
+    --cor-principal: #0B0D20;
+    --cor-secundaria: #212333;
+    --cor-destaque: #d3c47a;
+    --cor-texto: #D7F9FF;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: no-repeat left center;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh; /* Garante que a altura mínima seja a altura total da viewport */
+}
+
+.caixa-principal {
+    background: no-repeat right top;
+    background-color: var(--cor-principal);
+    opacity : 0.8;
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 600px; /* Ajuste a largura máxima conforme necessário */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Garante que o conteúdo fique sobre a imagem */
+    z-index: 1; /* Garante que o conteúdo fique sobre a imagem */
+    background-size: 150px;
+    margin-top: -150px;
+}
+
+.caixa-alternativas{
+    margin-top: 10px;
+}
+
+h1 {
+    color: var(--cor-destaque);
+}
+
+button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+button.correta {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+button.errada {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+.imagem-filme {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 15px auto;
+    border-radius: 10px;
+
+    /* Estado inicial: borrada e com opacidade baixa */
+    filter: blur(10px);
+    opacity: 0.35;
+    transition: filter 0.6s ease, opacity 0.6s ease;
+}
+
+/* Classe adicionada via JS quando a alternativa é respondida */
+.imagem-filme.revelada {
+    filter: blur(0);
+    opacity: 1;
+}
